@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
-function SearchBar() {
+function SearchBar({ stocks }) {
+  const [category, setCategory] = useState("");
+
+  function handleCategoryChange(category) {
+    setCategory(category);
+  }
+
+  const itemsToDisplay = stocks.filter((stock) => {
+    if (category === "All") {
+      return stocks;
+    } else {
+      return stock.type === category;
+    }
+  })
   return (
     <div>
       <strong>Sort by:</strong>
@@ -27,7 +40,8 @@ function SearchBar() {
       <br />
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
+        <select onChange={handleCategoryChange}>
+          <option value="">All</option>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>
