@@ -47,6 +47,7 @@ function SearchBar({ stocks }) {
           <option value="Finance">Finance</option>
         </select>
       </label>
+      {itemsToDisplay}
     </div>
   );
 }

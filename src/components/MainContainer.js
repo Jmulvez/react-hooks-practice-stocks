@@ -14,7 +14,11 @@ function MainContainer() {
   }, []);
 
   function handleClick() {
-    setMyStocks((myStocks) => !myStocks);
+      if ((stocks) === (stocks)) {
+        setMyStocks(myStocks)
+      } else if ((stocks) === (myStocks)) {
+        setStocks(stocks)
+      }
   }
   
   return (
@@ -23,10 +27,9 @@ function MainContainer() {
       <div className="row">
         <div className="col-8">
           <StockContainer stocks={stocks} onClick={handleClick} />
-          {myStocks ? "TRUE" : "FALSE"}
         </div>
         <div className="col-4">
-          <PortfolioContainer stocks={myStocks} />
+          <PortfolioContainer stocks={myStocks} onClick={handleClick} />
         </div>
       </div>
     </div>
